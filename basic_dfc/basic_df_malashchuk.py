@@ -1,8 +1,6 @@
 import pyspark.sql.types as t
 from pyspark.sql import SparkSession
 from pyspark import SparkConf
-from pyspark.sql.types import StringType
-from pyspark.sql.types import IntegerType
 
 
 def basic_test_df():
