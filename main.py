@@ -9,8 +9,8 @@ def display_test_df():
                                  .config(conf=SparkConf())
                                  .getOrCreate())
 
-    df = mal()
-    df.show()
+    df1 = mal()
+    df1.show()
 
 if __name__ == '__main__':
     print('This is the project of Melnyk, Malashchuk and Mindiuk')

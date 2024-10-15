@@ -15,5 +15,5 @@ def basic_test_df():
         t.StructField("name", t.StringType(), True),
         t.StructField("age", t.IntegerType(), True),
         t.StructField("city", t.StringType(), True)])
-    df = spark_session.createDataFrame(data, schema)
-    return df
+    df1 = spark_session.createDataFrame(data, schema)
+    return df1
