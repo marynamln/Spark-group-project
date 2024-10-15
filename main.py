@@ -1,6 +1,6 @@
 from pyspark import SparkConf
 from pyspark.sql import SparkSession
-from basic_dfc.basic_df_malashchuk import basic_test_df
+from basic_dfc.basic_df_malashchuk import basic_test_df as mal
 
 def display_test_df():
     spark_session = (SparkSession.builder
@@ -9,7 +9,7 @@ def display_test_df():
                                  .config(conf=SparkConf())
                                  .getOrCreate())
 
-    df = basic_test_df()
+    df = mal()
     df.show()
 
 if __name__ == '__main__':
