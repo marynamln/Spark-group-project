@@ -1,1 +1,1 @@
-data_path = "data\name.basics.tsv"
+data_path = "data/name.basics.tsv"

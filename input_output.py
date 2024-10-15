@@ -11,13 +11,18 @@ def read_imbd_df(file_path=data_path):
                      .getOrCreate())
 
     imbd_schema = t.StructType([
-        t.StructField("nconst", t.StringType(), True),
-        t.StructField("primaryName", t.StringType(), True),
-        t.StructField("birthYear", t.IntegerType(), True),
-        t.StructField("deathYear", t.StringType(), True),
-        t.StructField("primaryProfession", t.ArrayType(t.StringType()), True),
-        t.StructField("knownForTitles", t.ArrayType(t.StringType()), True)
+        t.StructField("Nconst", t.StringType(), True),
+        t.StructField("Primary Name", t.StringType(), True),
+        t.StructField("Birth Year", t.IntegerType(), True),
+        t.StructField("Death Year", t.StringType(), True),
+        t.StructField("Primary Profession", t.StringType(), True),
+        t.StructField("Known For Titles", t.StringType(), True)
     ])
 
-    df = spark_session.read.csv(file_path, header=True, nullValue='null', dateFormat='MM/dd/yyyy', schema=imbd_schema)
+    df = spark_session.read.csv(file_path, 
+                                sep='\t',
+                                header=True,
+                                nullValue='null', 
+                                dateFormat='MM/dd/yyyy', 
+                                schema=imbd_schema)
     return df
