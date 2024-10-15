@@ -1,6 +1,10 @@
 from pyspark import SparkConf
 from pyspark.sql import SparkSession
+
+from basic_dfc.basic_df_malashchuk import basic_test_df as mal
+
 from basic_dfc.basic_df_mindiuk import basic_test_df
+
 
 def display_test_df():
     spark_session = (SparkSession.builder
@@ -9,8 +13,13 @@ def display_test_df():
                                  .config(conf=SparkConf())
                                  .getOrCreate())
 
+
+    df1 = mal()
+    df1.show()
+
     df = basic_test_df()
     df.show()
+
 
 if __name__ == '__main__':
     print('This is the project of Melnyk, Malashchuk and Mindiuk')
