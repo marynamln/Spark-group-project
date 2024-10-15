@@ -1,7 +1,7 @@
 import pyspark.sql.types as t
 from pyspark.sql import SparkSession
 from pyspark import SparkConf
-from settings import data_path
+from settings import data_path, path_to_save
 
 def read_imdb_name_basics_df(file_path=data_path):
     spark_session = (SparkSession.builder
@@ -26,3 +26,6 @@ def read_imdb_name_basics_df(file_path=data_path):
                                 dateFormat='MM/dd/yyyy', 
                                 schema=imbd_name_basics_schema)
     return df
+
+def write_imdb_name_basics_df_to_csv(df, output_path=path_to_save):
+    df.write.csv(output_path, header=True, mode="overwrite")    
