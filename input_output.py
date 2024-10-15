@@ -3,14 +3,14 @@ from pyspark.sql import SparkSession
 from pyspark import SparkConf
 from settings import data_path
 
-def read_imbd_df(file_path=data_path):
+def read_imdb_name_basics_df(file_path=data_path):
     spark_session = (SparkSession.builder
                      .master("local")
                      .appName("Read IMDB DataFrame")
                      .config(conf=SparkConf())
                      .getOrCreate())
 
-    imbd_schema = t.StructType([
+    imbd_name_basics_schema = t.StructType([
         t.StructField("Nconst", t.StringType(), True),
         t.StructField("Primary Name", t.StringType(), True),
         t.StructField("Birth Year", t.IntegerType(), True),
@@ -24,5 +24,5 @@ def read_imbd_df(file_path=data_path):
                                 header=True,
                                 nullValue='null', 
                                 dateFormat='MM/dd/yyyy', 
-                                schema=imbd_schema)
+                                schema=imbd_name_basics_schema)
     return df
