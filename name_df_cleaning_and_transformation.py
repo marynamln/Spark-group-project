@@ -10,3 +10,6 @@ def convert_columns_to_snake_case(df):
         df = df.withColumnRenamed(old_col, new_columns[idx])
 
     return df
+
+def convert_death_year_to_int(df):
+    return df.withColumn("death_year", df["death_year"].cast("int"))
