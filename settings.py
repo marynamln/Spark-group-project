@@ -1,0 +1,1 @@
+path_to_data = "C:\Users\іванна\PycharmProjects\python-for-big-data-and-data-science\pythonProject1\Spark-group-project\data\title.akas.tsv"
