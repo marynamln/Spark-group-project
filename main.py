@@ -8,7 +8,9 @@ from input_output import read_imdb_name_basics_df, write_imdb_name_basics_df_to_
 from name_df_cleaning_and_transformation import (convert_columns_to_snake_case,
                                                  convert_death_year_to_int,
                                                  fill_missing_values,
-                                                 expand_primary_profession)
+                                                 expand_primary_profession,
+                                                 calculate_age_at_death,
+                                                 fill_missing_professions)
 
 if __name__ == '__main__':
     df = read_imdb_name_basics_df()
@@ -18,5 +20,7 @@ if __name__ == '__main__':
     transformed_dy_col_df = convert_death_year_to_int(renamed_col_df)
     fill_null_value_df = fill_missing_values(transformed_dy_col_df)
     expand_primary_profession_df = expand_primary_profession(fill_null_value_df)
+    calculate_age_at_death_df = calculate_age_at_death(expand_primary_profession_df)
+    fill_missing_professions_df = fill_missing_professions(calculate_age_at_death_df)
 
-    expand_primary_profession_df.show(50, truncate=False)
+    fill_missing_professions_df.show(50, truncate=False)
