@@ -1,26 +1,10 @@
 from pyspark import SparkConf
 from pyspark.sql import SparkSession
-
 from basic_dfc.basic_df_malashchuk import basic_test_df as mal
-
 from basic_dfc.basic_df_mindiuk import basic_test_df
 
-
-def display_test_df():
-    spark_session = (SparkSession.builder
-                                 .master("local")
-                                 .appName("task app")
-                                 .config(conf=SparkConf())
-                                 .getOrCreate())
-
-
-    df1 = mal()
-    df1.show()
-
-    df = basic_test_df()
-    df.show()
-
+from input_output import read_imdb_name_basics_df, write_imdb_name_basics_df_to_csv
 
 if __name__ == '__main__':
-    print('This is the project of Melnyk, Malashchuk and Mindiuk')
-    display_test_df()
+    df = read_imdb_name_basics_df()
+    write_imdb_name_basics_df_to_csv(df, output_path="data/results/name.csv", num_rows=20, mode="overwrite")
