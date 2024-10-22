@@ -28,4 +28,4 @@ def read_imdb_name_basics_df(file_path=data_path):
     return df
 
 def write_imdb_name_basics_df_to_csv(df, output_path=path_to_save, num_rows=100, mode="overwrite"):
-    df.limit(num_rows).write.csv(output_path, header=True, mode=mode)    
+    df.limit(num_rows).write.csv(output_path, header=True, mode=mode)
