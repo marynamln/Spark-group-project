@@ -19,3 +19,9 @@ def fill_missing_values(df):
     df = df.withColumn("birth_year", f.when(df["birth_year"].isNull(), 0).otherwise(df["birth_year"]))
 
     return df
+
+def expand_primary_profession(df):
+    professions = f.split(df["primary_profession"], ",")
+    return df.withColumn("profession_1", professions.getItem(0)) \
+             .withColumn("profession_2", professions.getItem(1)) \
+             .withColumn("profession_3", professions.getItem(2))
