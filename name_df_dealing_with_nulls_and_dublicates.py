@@ -3,10 +3,8 @@ import pyspark.sql.functions as f
 from pyspark.sql import SparkSession
 from pyspark import SparkConf
 
-def fill_missing_year_values(df):
-    df = df.withColumn("death_year", f.when(df["death_year"].isNull(), 0).otherwise(df["death_year"]))
-    df = df.withColumn("birth_year", f.when(df["birth_year"].isNull(), 0).otherwise(df["birth_year"]))
-
+def drop_years_columns(df):
+    df = df.drop("birth_year", "death_year")
     return df
 
 def fill_missing_professions(df):
