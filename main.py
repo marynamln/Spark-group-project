@@ -12,7 +12,7 @@ from name_df_cleaning_and_transformation import (convert_columns_to_snake_case,
                                                  calculate_age_at_death)
 
 from name_df_dealing_with_nulls_and_dublicates import drop_years_columns, fill_missing_professions
-from name_df_filtering import filter_actor_and_director
+from name_df_filtering import filter_actor_and_director, filter_casting_directors
 
 if __name__ == '__main__':
     df = read_imdb_name_basics_df()
@@ -24,5 +24,8 @@ if __name__ == '__main__':
     df = df.dropDuplicates()
 
     df_actors_and_directors = filter_actor_and_director(df)
-
     write_imdb_name_basics_df_to_csv(df_actors_and_directors, output_path="data/results/df_actors_and_directors.csv", mode="overwrite")
+
+    df_casting_directors = filter_casting_directors(df)
+    write_imdb_name_basics_df_to_csv(df_casting_directors, output_path="data/results/df_casting_directors.csv", mode="overwrite")
+

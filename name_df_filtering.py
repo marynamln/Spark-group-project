@@ -11,3 +11,18 @@ def filter_actor_and_director(df):
                     df["primary_profession"].contains("actress")) &
                     df["primary_profession"].contains("director"))
     return df
+
+def filter_casting_directors(df):
+    """
+    Who has a casting director profession with three or more titles?
+    """
+    df = df.withColumn("primary_profession", f.split(df["primary_profession"], ","))
+    df = df.withColumn("known_for_titles", f.split(df["known_for_titles"], ","))
+
+    df = df.filter(f.array_contains(df.primary_profession, "casting_director") &
+                  (f.size(df.known_for_titles) >= 3))
+
+    df = df.withColumn("primary_profession", f.concat_ws(",", "primary_profession"))
+    df = df.withColumn("known_for_titles", f.concat_ws(",", "known_for_titles"))
+
+    return df

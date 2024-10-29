@@ -27,4 +27,4 @@ Malashchuk Ivanna, group 1
 17. How many directors were born before 1950?
 18. Which actors are known for the most titles?
 19. How many series have ended by 2020?
-20. Which movies had different titles in different regions?
+20. Who has a casting director profession with three or more titles?
