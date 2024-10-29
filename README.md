@@ -19,7 +19,7 @@ Malashchuk Ivanna, group 1
 9. Which movie lasts the longest?
 10. How many movies are there in the drama genre?
 11. How many films were shot in a certain region (eg USA, Ukraine)?
-12. Which actors played the role of the main character in the most films?
+12. Which persons have only the profession of actor/actress?
 13. Which directors have worked most often on films of a certain genre (for example, comedy)?
 14. Which countries are the largest producers of films by number of titles?
 15. Who is an actor and a director at the same time?

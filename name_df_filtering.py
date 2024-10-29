@@ -26,3 +26,18 @@ def filter_casting_directors(df):
     df = df.withColumn("known_for_titles", f.concat_ws(",", "known_for_titles"))
 
     return df
+
+def filter_only_actor(df):
+    """
+    Which persons have only the profession of actor/actress?
+    """
+    df = df.withColumn("primary_profession", f.split(df["primary_profession"], ","))
+
+    df = df.filter(
+        (f.size("primary_profession") == 1) &
+        (f.array_contains("primary_profession", "actor") |
+         f.array_contains("primary_profession", "actress"))
+    )
+
+    df = df.withColumn("primary_profession", f.concat_ws(",", "primary_profession"))
+    return df
