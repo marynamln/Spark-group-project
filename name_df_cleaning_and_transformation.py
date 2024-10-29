@@ -14,12 +14,6 @@ def convert_columns_to_snake_case(df):
 def convert_death_year_to_int(df):
     return df.withColumn("death_year", df["death_year"].cast("int"))
 
-def fill_missing_values(df):
-    df = df.withColumn("death_year", f.when(df["death_year"].isNull(), 0).otherwise(df["death_year"]))
-    df = df.withColumn("birth_year", f.when(df["birth_year"].isNull(), 0).otherwise(df["birth_year"]))
-
-    return df
-
 def expand_primary_profession(df):
     professions = f.split(df["primary_profession"], ",")
     df = df.withColumn("profession_1", professions.getItem(0)) \
@@ -32,11 +26,4 @@ def calculate_age_at_death(df):
     df = df.withColumn("age_at_death", f.when(df["death_year"] != 0,
                                               df["death_year"] - df["birth_year"])
                        .otherwise(None))
-    return df
-
-def fill_missing_professions(df):
-    df = df.withColumn("profession_1", f.when(df["profession_1"].isNull(), None).otherwise(df["profession_1"]))
-    df = df.withColumn("profession_2", f.when(df["profession_2"].isNull(), None).otherwise(df["profession_2"]))
-    df = df.withColumn("profession_3", f.when(df["profession_3"].isNull(), None).otherwise(df["profession_3"]))
-
     return df
