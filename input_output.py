@@ -27,5 +27,5 @@ def read_imdb_name_basics_df(file_path=data_path):
                                 schema=imbd_name_basics_schema)
     return df
 
-def write_imdb_name_basics_df_to_csv(df, output_path=path_to_save, num_rows=100, mode="overwrite"):
-    df.limit(num_rows).write.csv(output_path, header=True, mode=mode)
+def write_imdb_name_basics_df_to_csv(df, output_path=path_to_save, mode="overwrite"):
+    df.write.csv(output_path, header=True, mode=mode)

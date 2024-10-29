@@ -22,7 +22,7 @@ Malashchuk Ivanna, group 1
 12. Which actors played the role of the main character in the most films?
 13. Which directors have worked most often on films of a certain genre (for example, comedy)?
 14. Which countries are the largest producers of films by number of titles?
-15. How many adult movies are in the dataset?
+15. Who is an actor and a director at the same time?
 16. Which movies have the most votes on IMDb?
 17. How many directors were born before 1950?
 18. Which actors are known for the most titles?
