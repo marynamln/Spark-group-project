@@ -13,6 +13,7 @@ from name_df_cleaning_and_transformation import (convert_columns_to_snake_case,
 
 from name_df_dealing_with_nulls_and_dublicates import drop_years_columns, fill_missing_professions
 from name_df_filtering import filter_actor_and_director, filter_casting_directors, filter_only_actor
+from name_df_aggregation_and_grouping import count_professions_by_group
 
 if __name__ == '__main__':
     df = read_imdb_name_basics_df()
@@ -34,3 +35,6 @@ if __name__ == '__main__':
     df_only_actors = filter_only_actor(df)
     write_imdb_name_basics_df_to_csv(df_only_actors, output_path="data/results/df_only_actors.csv",
                                      mode="overwrite")
+
+    count_professions_df = count_professions_by_group(df)
+
