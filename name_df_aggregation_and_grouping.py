@@ -23,3 +23,13 @@ def analyze_titles_per_person(df):
                   f.first("primary_profession").alias("professions")
               )
     )
+
+def analyze_multi_profession_people(df):
+    """
+    How many people have multiple professions?
+    """
+    return (df.withColumn("profession_count", f.size(f.split("primary_profession", ",")))
+              .groupBy("profession_count")
+              .agg(f.count("*").alias("people_count"))
+              .orderBy("profession_count")
+    )

@@ -30,3 +30,4 @@ Malashchuk Ivanna, group 1
 20. Who has a casting director profession with three or more titles?
 21. How many people have each combination of professions?
 22. How many titles is each person known for?
+23. How many people have multiple professions?
