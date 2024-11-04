@@ -31,3 +31,5 @@ Malashchuk Ivanna, group 1
 21. How many people have each combination of professions?
 22. How many titles is each person known for?
 23. How many people have multiple professions?
+24. How versatile are people in their professions compared to others with similar number of titles?
+25. What is each person's ranking within their primary profession based on number of titles?
