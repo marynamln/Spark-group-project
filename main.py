@@ -16,7 +16,12 @@ from name_df_filtering import filter_actor_and_director, filter_casting_director
 from name_df_aggregation_and_grouping import (count_professions_by_group,
                                               analyze_titles_per_person,
                                               analyze_multi_profession_people)
+
 from name_df_window_functions import analyze_career_versatility, analyze_profession_ranking
+
+from io_help_functions import read_imdb_title_crew_df, read_imdb_title_basics_df
+
+from name_df_joins import get_comedy_directors
 
 if __name__ == '__main__':
     df = read_imdb_name_basics_df()
@@ -26,6 +31,9 @@ if __name__ == '__main__':
     df = drop_years_columns(df)
 
     df = df.dropDuplicates()
+
+    df_title_crew = read_imdb_title_crew_df()
+    df_title_basics = read_imdb_title_basics_df()
 
     df_actors_and_directors = filter_actor_and_director(df)
     write_imdb_name_basics_df_to_csv(df_actors_and_directors, output_path="data/results/df_actors_and_directors.csv",
@@ -61,4 +69,9 @@ if __name__ == '__main__':
     analyze_profession_ranking_df = analyze_profession_ranking(df)
     write_imdb_name_basics_df_to_csv(analyze_profession_ranking_df,
                                      output_path="data/results/analyze_profession_ranking_df.csv",
+                                     mode="overwrite")
+
+    df_comedy_directors = get_comedy_directors(df, df_title_crew, df_title_basics)
+    write_imdb_name_basics_df_to_csv(df_comedy_directors,
+                                     output_path="data/results/df_comedy_directors.csv",
                                      mode="overwrite")
