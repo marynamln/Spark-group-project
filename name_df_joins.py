@@ -1,7 +1,6 @@
 import pyspark.sql.types as t
 import pyspark.sql.functions as f
 
-
 def get_comedy_directors(name_df, title_crew_df, title_basics_df):
     """
     Which directors have made the most films in the comedy genre?
@@ -26,3 +25,20 @@ def get_comedy_directors(name_df, title_crew_df, title_basics_df):
                            )
 
     return comedy_directors_df
+
+def get_actor_roles_count(name_df, title_principals_df):
+    """
+    Which actors are known for the most roles?
+    """
+    name_df = name_df.withColumn("primary_profession", f.split(f.col("primary_profession"), ","))
+
+    actor_roles_df = (name_df
+                      .filter(f.array_contains(f.col("primary_profession"), "actor") |
+                              f.array_contains(f.col("primary_profession"), "actress"))
+                      .join(title_principals_df, on="nconst", how="inner")
+                      .groupBy("primary_name")
+                      .agg(f.count("tconst").alias("roles_count"))
+                      .orderBy(f.col("roles_count").desc())
+                      )
+
+    return actor_roles_df

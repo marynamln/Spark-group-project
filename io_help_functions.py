@@ -1,7 +1,7 @@
 import pyspark.sql.types as t
 from pyspark.sql import SparkSession
 from pyspark import SparkConf
-from settings import data_path_title_crew, data_path_title_basics
+from settings import data_path_title_crew, data_path_title_basics, data_path_title_principals
 
 def read_imdb_title_crew_df(file_path=data_path_title_crew):
     spark_session = (SparkSession.builder
@@ -47,4 +47,27 @@ def read_imdb_title_basics_df(file_path=data_path_title_basics):
                                 header=True,
                                 nullValue='null',
                                 schema=imbd_title_basics_schema)
+    return df
+
+def read_imdb_title_principals_df(file_path=data_path_title_principals):
+    spark_session = (SparkSession.builder
+                     .master("local")
+                     .appName("Read IMDB DataFrame")
+                     .config(conf=SparkConf())
+                     .getOrCreate())
+
+    imbd_title_principals_schema = t.StructType([
+        t.StructField("tconst", t.StringType(), True),
+        t.StructField("ordering", t.IntegerType(), True),
+        t.StructField("nconst", t.StringType(), True),
+        t.StructField("category", t.StringType(), True),
+        t.StructField("job", t.StringType(), True),
+        t.StructField("characters", t.StringType(), True)
+    ])
+
+    df = spark_session.read.csv(file_path,
+                                sep='\t',
+                                header=True,
+                                nullValue='null',
+                                schema=imbd_title_principals_schema)
     return df

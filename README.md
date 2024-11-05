@@ -24,7 +24,7 @@ Malashchuk Ivanna, group 1
 14. Which countries are the largest producers of films by number of titles?
 15. Who is an actor and a director at the same time?
 16. Which movies have the most votes on IMDb?
-17. How many directors were born before 1950?
+17. Which actors are known for the most roles?
 18. Which actors are known for the most titles?
 19. How many series have ended by 2020?
 20. Who has a casting director profession with three or more titles?
