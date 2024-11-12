@@ -3,7 +3,6 @@ from pyspark.sql import SparkSession
 from pyspark import SparkConf
 from settings import path_to_save, data_path_title_basics
 
-
 def read_title_basics_df(file_path=data_path_title_basics):
     spark_session = (SparkSession.builder
                      .master("local")
@@ -30,5 +29,7 @@ def read_title_basics_df(file_path=data_path_title_basics):
     return df
 
 
+def write_title_basics_df_to_csv(df, output_path=path_to_save, num_rows=100, mode="overwrite"):
+    df.limit(num_rows).write.csv(output_path, header=True, mode=mode)
 
 
