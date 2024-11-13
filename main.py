@@ -39,50 +39,50 @@ if __name__ == '__main__':
     df_title_principals = read_imdb_title_principals_df()
 
     df_actors_and_directors = filter_actor_and_director(df_name_basics)
-    # write_imdb_name_basics_df_to_csv(df_actors_and_directors, output_path="data/results/df_actors_and_directors.csv",
-    #                                  mode="overwrite")
+    write_imdb_name_basics_df_to_csv(df_actors_and_directors, output_path="data/results/df_actors_and_directors.csv",
+                                     mode="overwrite")
 
     df_casting_directors = filter_casting_directors(df_name_basics)
-    # write_imdb_name_basics_df_to_csv(df_casting_directors, output_path="data/results/df_casting_directors.csv",
-    #                                  mode="overwrite")
+    write_imdb_name_basics_df_to_csv(df_casting_directors, output_path="data/results/df_casting_directors.csv",
+                                     mode="overwrite")
 
     df_only_actors = filter_only_actor(df_name_basics)
-    # write_imdb_name_basics_df_to_csv(df_only_actors, output_path="data/results/df_only_actors.csv",
-    #                                  mode="overwrite")
+    write_imdb_name_basics_df_to_csv(df_only_actors, output_path="data/results/df_only_actors.csv",
+                                     mode="overwrite")
 
     count_professions_df = count_professions_by_group(df_name_basics)
-    # write_imdb_name_basics_df_to_csv(count_professions_df, output_path="data/results/count_professions_df.csv",
-    #                                  mode="overwrite")
+    write_imdb_name_basics_df_to_csv(count_professions_df, output_path="data/results/count_professions_df.csv",
+                                     mode="overwrite")
 
     analyze_titles_per_person_df = analyze_titles_per_person(df_name_basics)
-    # write_imdb_name_basics_df_to_csv(analyze_titles_per_person_df,
-    #                                  output_path="data/results/analyze_titles_per_person_df.csv",
-    #                                  mode="overwrite")
+    write_imdb_name_basics_df_to_csv(analyze_titles_per_person_df,
+                                     output_path="data/results/analyze_titles_per_person_df.csv",
+                                     mode="overwrite")
 
     analyze_multi_profession_people_df = analyze_multi_profession_people(df_name_basics)
-    # write_imdb_name_basics_df_to_csv(analyze_multi_profession_people_df,
-    #                                  output_path="data/results/analyze_multi_profession_people_df.csv",
-    #                                  mode="overwrite")
+    write_imdb_name_basics_df_to_csv(analyze_multi_profession_people_df,
+                                     output_path="data/results/analyze_multi_profession_people_df.csv",
+                                     mode="overwrite")
 
     analyze_career_versatility_df = analyze_career_versatility(df_name_basics)
-    # write_imdb_name_basics_df_to_csv(analyze_career_versatility_df,
-    #                                  output_path="data/results/analyze_career_versatility_df.csv",
-    #                                  mode="overwrite")
+    write_imdb_name_basics_df_to_csv(analyze_career_versatility_df,
+                                     output_path="data/results/analyze_career_versatility_df.csv",
+                                     mode="overwrite")
 
     analyze_profession_ranking_df = analyze_profession_ranking(df_name_basics)
-    # write_imdb_name_basics_df_to_csv(analyze_profession_ranking_df,
-    #                                  output_path="data/results/analyze_profession_ranking_df.csv",
-    #                                  mode="overwrite")
+    write_imdb_name_basics_df_to_csv(analyze_profession_ranking_df,
+                                     output_path="data/results/analyze_profession_ranking_df.csv",
+                                     mode="overwrite")
 
     df_comedy_directors = get_comedy_directors(df_name_basics, df_title_crew, df_title_basics)
-    # write_imdb_name_basics_df_to_csv(df_comedy_directors,
-    #                                  output_path="data/results/df_comedy_directors.csv",
-    #                                  mode="overwrite")
+    write_imdb_name_basics_df_to_csv(df_comedy_directors,
+                                     output_path="data/results/df_comedy_directors.csv",
+                                     mode="overwrite")
 
     df_actor_roles_count = get_actor_roles_count(df_name_basics, df_title_principals)
-    # write_imdb_name_basics_df_to_csv(df_actor_roles_count,
-    #                                  output_path="data/results/df_actor_roles_count.csv",
-    #                                  mode="overwrite")
+    write_imdb_name_basics_df_to_csv(df_actor_roles_count,
+                                     output_path="data/results/df_actor_roles_count.csv",
+                                     mode="overwrite")
 
     df_title_basics = read_title_basics_df()
     df_title_basics = make_columns_snake_case(df_title_basics)
