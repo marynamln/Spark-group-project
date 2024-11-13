@@ -10,3 +10,11 @@ def make_columns_snake_case(df):
         df = df.withColumnRenamed(old_col, new_columns[idx])
 
     return df
+
+
+def convert_data_types(df):
+    df = df.withColumn("start_year", df["start_year"].cast("int"))
+    df = df.withColumn("end_year", df["end_year"].cast("int"))
+    df = df.withColumn("runtime_minutes", df["runtime_minutes"].cast("int"))
+    df = df.withColumn("is_adult", f.when(f.col("is_adult") == "1", True).otherwise(False))
+    return df
