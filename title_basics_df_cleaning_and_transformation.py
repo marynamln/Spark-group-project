@@ -20,6 +20,6 @@ def convert_data_types(df):
     return df
 
 def fill_in_missing_values(df):
-    df = df.withColumn("end_year", f.when(df["end_year"].isNull(), 0).otherwise(df["end_year"]))
+    df = df.withColumn("start_year", f.when(df["start_year"].isNull(), 0).otherwise(df["start_year"]))
     df = df.withColumn("runtime_minutes", f.when(df["runtime_minutes"].isNull(), 0).otherwise(df["runtime_minutes"]))
     return df
