@@ -9,7 +9,8 @@ Malashchuk Ivanna, group 1
 # Data questions (IMDB dataset)
 
 1. How many films are in Ukrainian?
-2. How many movies were released after 2010?
+2. What movies were released after 2010?
+3. What records have different primary title and original title?
 3. Which movies have the highest average rating?
 4. How many movies have a rating below 5.0?
 5. Which directors made the most films?
@@ -17,7 +18,7 @@ Malashchuk Ivanna, group 1
 7. What genres are most common in movies?
 8. How many series last more than 10 seasons?
 9. Which movie lasts the longest?
-10. How many movies are there in the drama genre?
+10. What movies are in the drama genre?
 11. How many films were shot in a certain region (eg USA, Ukraine)?
 12. Which persons have only the profession of actor/actress?
 13. Which directors have made the most films in the comedy genre?

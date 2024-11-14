@@ -14,6 +14,7 @@ from name_df_cleaning_and_transformation import (convert_columns_to_snake_case,
 
 from title_basics_df_cleaning_and_transformation import make_columns_snake_case, convert_data_types, fill_in_missing_values
 from title_basics_df_dealing_with_nulls import calculate_missing_values_percentage, drop_end_year_column
+from title_basics_df_filtering import filter_different_titles
 
 from name_df_dealing_with_nulls_and_dublicates import drop_years_columns, fill_missing_professions
 from name_df_filtering import filter_actor_and_director, filter_casting_directors, filter_only_actor
@@ -91,4 +92,7 @@ if __name__ == '__main__':
     df_title_basics = convert_data_types(df_title_basics)
     df_title_basics = drop_end_year_column(df_title_basics)
     df_title_basics = fill_in_missing_values(df_title_basics)
-    write_title_basics_df_to_csv(df_title_basics, output_path="data/results/cleaned_title_basics.csv", mode="overwrite")
+
+    df_different_titles = filter_different_titles(df_title_basics)
+    write_title_basics_df_to_csv(df_different_titles, output_path="data/results/df_different_titles.csv", mode="overwrite")
+
