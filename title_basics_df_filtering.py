@@ -26,3 +26,14 @@ def filter_drama_movies(df):
     df = df.withColumn("genres", f.concat_ws(",", col("genres")))
     return df
 
+
+def filter_movies_after_2010(df):
+    """
+    What movies were released after 2010?
+    """
+    df = df.filter(
+        (col('title_type') == 'movie') &
+        (col('start_year') > 2010)
+    )
+    return df
+
